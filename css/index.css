@@ -1,0 +1,92 @@
+:root
+{
+    --primary-color:#56768F;
+    --text-color:#F9F1E7;
+}
+
+.lightmode
+{
+    --primary-color:#65B5F6;
+    --text-color:#2E3647;
+}
+
+#lightIcon
+{
+    width:50px;
+    height:50px;
+}
+
+#darkIcon
+{
+    width:50px;
+    height:50px;
+}
+
+#themeBtn
+{
+    background: none;
+    border:none;
+}
+
+#themeBtn img:last-child/*to ensure that the light icon is not displayed*/
+{
+    display:none;
+}
+
+.lightmode #themeBtn img:first-child/*same as the above but for dark icon*/
+{
+    display:none;
+}
+
+.lightmode #themeBtn img:last-child/*to prevent overlapping*/
+{
+    display: block;
+}
+
+body
+{
+    background-color: var(--primary-color);
+}
+
+#fidzzIcon
+{
+    display:block;
+    margin-inline:auto;
+    margin-block:100px;
+    width:200px;
+    height:167px;
+}
+
+#access
+{
+    display:block;
+    margin-inline:auto;
+    translate: 0px -75px;
+    padding-block:10px;
+    padding-inline:15px;
+    text-align:center;
+    background-color:#FFB84D;
+    color: var(--text-color);
+    border-radius: 12.5px;
+    box-shadow: 0 5px 0px #E9F9B4;
+    font-size: 25px;
+    font-family: 'Itim';
+    border:none;
+}
+
+#access:hover
+{
+    background-color:#DC9A36;
+}
+
+#access:active
+{
+    background-color:#A66B13;
+    box-shadow:none;
+    translate: 0px -70px;
+}
+
+#linked
+{
+    text-decoration: none;
+}
