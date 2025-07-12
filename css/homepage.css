@@ -65,15 +65,19 @@ body
     display:flex;
     flex-direction:column;
     align-items:center;
-    translate: 0 175px;
+    justify-content: center;
+    height: 75vh;
 }
 
-#fileIcon
+.fileIcon
 {
-    display:block;
-    margin-inline:auto;
     width:100.57px;
     height:78.33px;
+}
+
+#lightFile
+{
+    display:none;
 }
 
 #fileText
