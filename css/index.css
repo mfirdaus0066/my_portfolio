@@ -32,6 +32,11 @@
     border:none;
 }
 
+#themeBtn:hover
+{
+    cursor:pointer;
+}
+
 #themeBtn img:last-child/*to ensure that the light icon is not displayed*/
 {
     display:none;
@@ -83,6 +88,7 @@ body
 #access:hover
 {
     background-color:#DC9A36;
+    cursor: pointer;
 }
 
 #access:active

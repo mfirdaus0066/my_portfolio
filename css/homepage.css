@@ -38,6 +38,11 @@
     border:none;
 }
 
+#themeBtn:hover
+{
+    cursor:pointer;
+}
+
 #themeBtn img:last-child
 {
     display:none;
@@ -73,6 +78,11 @@ body
 {
     width:100.57px;
     height:78.33px;
+}
+
+.fileIcon:hover
+{
+    cursor: pointer;
 }
 
 #lightFile
