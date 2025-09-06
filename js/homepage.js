@@ -31,3 +31,8 @@ function themechange()
     let lightmode = localStorage.getItem('lightmode')
     lightmode !== "active" ? enablelightmode() : disablelightmode()
 }
+
+function openFile()
+{
+    
+}

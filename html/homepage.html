@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Home Page</title>
         <link rel="stylesheet" href="../css/homepage.css">
+        <link rel="stylesheet" href="../css/window.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
@@ -19,10 +20,16 @@
         </header>
 
         <main>
-            <div id="fileContainer">
+            <div id="fileContainer" onclick="openFile()">
                 <img src="../image/dark home file icon.png" alt="file icon" id="darkFile" class="fileIcon">
                 <img src="../image/light home file icon.png" alt="file icon" id="lightFile" class="fileIcon">
                 <div id="fileText">my portfolio</div>
+            </div>
+
+            <div id="window" class="window">
+                <p id="placeholder">
+                    place holder
+                </p>
             </div>
 
         </main>

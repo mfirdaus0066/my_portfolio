@@ -1,0 +1,24 @@
+:root
+{
+    --window-color:#9A83B8;
+    --window-top-color:#2E3647;
+    --toolbar-color:#593B7F;
+    --text-color:#F9F1E7;
+}
+
+#window
+{
+    display:none;
+    width:400px;
+    height:300px;
+    background-color: var(--window-color);
+    position:absolute;
+    top:25%;
+    left:35%;
+    right:35%;
+}
+
+#placeholder
+{
+    text-align: center;
+}
