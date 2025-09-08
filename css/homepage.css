@@ -2,6 +2,9 @@
 {
     --primary-color:#56768F;
     --text-color:#F9F1E7;
+    --window-color:#9A83B8;
+    --window-top-color:#2E3647;
+    --taskbar-color:#593B7F;
 }
 
 .lightmode
@@ -10,7 +13,7 @@
     --text-color:#2E3647;
     --window-color:#CEBAE8;
     --window-top-color:#56768F;
-    --toolbar-color:#916DBF;
+    --taskbar-color:#916DBF;
 }
 
 #darkIcon
@@ -92,5 +95,31 @@ body
     font-family:'Itim';
     color:var(--text-color);
     font-size:1.3em;
+}
+
+#window
+{
+    display: block;
+    width:120vh;
+    height:60vh;
+    background-color: var(--window-color);
+    border-radius: 20px;
+    position:absolute;
+    top: 22vh;
+}
+
+#windowbox
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+}
+
+#placeholder
+{
+    text-align: center;
+    color: var(--text-color);
 }
 
