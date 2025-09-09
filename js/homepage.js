@@ -1,6 +1,7 @@
 let lightmode = localStorage.getItem('lightmode')//to store the preferred theme in the local storage (like in your browser)
 const themeBtn = document.getElementById('themeBtn')
 const fileIcon = document.getElementsByClassName('fileIcon')
+const windowBox = document.getElementById('windowbox')
 
 function enablelightmode()
 {
@@ -34,5 +35,5 @@ function themechange()
 
 function openFile()
 {
-    
+    windowBox.style.visibility = "visible"
 }

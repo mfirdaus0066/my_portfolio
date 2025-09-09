@@ -110,6 +110,7 @@ body
 
 #windowbox
 {
+    visibility:hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -123,3 +124,20 @@ body
     color: var(--text-color);
 }
 
+#window-top
+{
+    position:relative;
+    z-index: 100;
+    background-color: var(--window-top-color);
+    width:120vh;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    top: -64vh;
+}
+
+#windowbtn
+{
+    color: var(--text-color);
+    padding-inline: 10px;
+    transform: translateX(-1);
+}
