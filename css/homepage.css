@@ -145,7 +145,7 @@ body
     justify-content: flex-end;
 }
 
-#windowbtn img:last-child
+#windowbtn img:nth-child(even)
 {
     display:none;
 }
