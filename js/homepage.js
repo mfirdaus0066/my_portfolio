@@ -3,6 +3,7 @@ const themeBtn = document.getElementById('themeBtn')
 const fileIcon = document.getElementsByClassName('fileIcon')
 const windowBox = document.getElementById('windowbox')
 const closeBtn = document.getElementsByClassName('closebtn')
+const window = document.getElementById('window')
 
 function enablelightmode()
 {
@@ -41,7 +42,7 @@ function themechange()
 
 function openFile()
 {
-    windowBox.style.visibility = "visible"
+    windowBox.style.visibility = "visible";
     windowBox.style.left = "50%";
     windowBox.style.top = "50%";
 }
@@ -49,6 +50,11 @@ function openFile()
 function closeWindow()
 {
     windowBox.style.visibility = "hidden"
+}
+
+function miniWindow()
+{
+   
 }
 
 let isDragging = false
