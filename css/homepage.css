@@ -137,7 +137,26 @@ body
 
 #windowbtn
 {
-    color: var(--text-color);
+    display: flex;
+    flex-direction: row;
     padding-inline: 10px;
-    transform: translateX(-1);
+    padding-block: 5px;
+    gap: 5px;
+    justify-content: flex-end;
 }
+
+#windowbtn img:last-child
+{
+    display:none;
+}
+
+#windowbtn img
+{
+    width: 25px;
+}
+
+#windowbtn img:hover
+{
+    cursor: pointer;
+}
+

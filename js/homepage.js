@@ -2,6 +2,7 @@ let lightmode = localStorage.getItem('lightmode')//to store the preferred theme 
 const themeBtn = document.getElementById('themeBtn')
 const fileIcon = document.getElementsByClassName('fileIcon')
 const windowBox = document.getElementById('windowbox')
+const closeBtn = document.getElementsByClassName('closebtn')
 
 function enablelightmode()
 {
@@ -11,6 +12,8 @@ function enablelightmode()
     fileIcon[0].style.display = "none"
     fileIcon[1].style.display = "block"
     //just like the theme icon case but since the file icon is an image and not a colour i decide to do it this way
+    closeBtn[0].style.display = "none"
+    closeBtn[1].style.display = " block"
 }
 
 function disablelightmode()
@@ -20,6 +23,9 @@ function disablelightmode()
 
     fileIcon[1].style.display = "none"
     fileIcon[0].style.display = "block"
+
+    closeBtn[0].style.display = "none"
+    closeBtn[1].style.display = " block"
 }
 
 if(lightmode === "active")//to check if the light theme is active so it can be applied when you reload/comeback to the page
@@ -36,4 +42,9 @@ function themechange()
 function openFile()
 {
     windowBox.style.visibility = "visible"
+}
+
+function closeWindow()
+{
+    windowBox.style.visibility = "hidden"
 }
