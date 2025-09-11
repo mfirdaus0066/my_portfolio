@@ -36,11 +36,18 @@
 {
     background: none;
     border:none;
+    transition: transform 0.3s;
 }
 
 #themeBtn:hover
 {
     cursor:pointer;
+    transform: scale(1.1);
+}
+
+#themeBtn:active
+{
+    transform: scale(0.9);
 }
 
 #themeBtn img:last-child
@@ -78,11 +85,18 @@ body
 {
     width:100.57px;
     height:78.33px;
+    transition: transform 0.3s;
 }
 
 .fileIcon:hover
 {
     cursor: pointer;
+    transform: scale(1.1);
+}
+
+.fileIcon:active
+{
+    transform: scale(1.05);
 }
 
 #lightFile
@@ -105,16 +119,18 @@ body
     background-color: var(--window-color);
     border-radius: 20px;
     position:absolute;
-    top: 22vh;
+    border-top: 35px solid var(--window-top-color);
 }
 
 #windowbox
-{
+{   
+    position: fixed;
     visibility:hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    width:120vh;
+    height:60vh;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
     z-index: 99;
 }
 
@@ -124,25 +140,16 @@ body
     color: var(--text-color);
 }
 
-#window-top
-{
-    position:relative;
-    z-index: 100;
-    background-color: var(--window-top-color);
-    width:120vh;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    top: -64vh;
-}
-
 #windowbtn
 {
+    position:absolute;
     display: flex;
     flex-direction: row;
     padding-inline: 10px;
     padding-block: 5px;
     gap: 5px;
-    justify-content: flex-end;
+    right: 0;
+    bottom:100%;
 }
 
 #windowbtn img:nth-child(even)
@@ -153,10 +160,28 @@ body
 #windowbtn img
 {
     width: 25px;
+    height: 25px;
+    transition: transform 0.2s;
 }
 
 #windowbtn img:hover
 {
     cursor: pointer;
+    transform: scale(1.1);
+}
+
+#windowbtn img:active
+{
+    transform: scale(0.9);
+}
+
+#taskbar
+{
+    position:fixed;
+    width: 100%;
+    background-color: var(--taskbar-color);
+    bottom:0;
+    left:0;
+    height:40px;
 }
 
