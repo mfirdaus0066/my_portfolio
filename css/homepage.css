@@ -134,20 +134,15 @@ body
     z-index: 99;
 }
 
-#placeholder
-{
-    text-align: center;
-    color: var(--text-color);
-}
-
 #windowbtn
 {
     position:absolute;
     display: flex;
     flex-direction: row;
     padding-inline: 10px;
-    padding-block: 5px;
-    gap: 5px;
+    padding-top: 8px;
+    padding-bottom:4px;
+    gap: 8px;
     right: 0;
     bottom:100%;
 }
@@ -155,6 +150,16 @@ body
 #windowbtn img:nth-child(even)
 {
     display:none;
+}
+
+.lightmode #windowbtn img:nth-child(odd)
+{
+    display:none;
+}
+
+.lightmode #windowbtn img:nth-child(even)
+{
+    display:block;
 }
 
 #windowbtn img

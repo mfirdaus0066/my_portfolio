@@ -2,30 +2,52 @@
 {
     --window-color:#9A83B8;
     --window-top-color:#2E3647;
-    --toolbar-color:#593B7F;
+    --taskbar-color:#593B7F;
     --text-color:#F9F1E7;
 }
 
-#window
+.lightmode
 {
-    display: block;
-    width:120vh;
-    height:60vh;
-    background-color: var(--window-color);
+    --window-color:#CEBAE8;
+    --window-top-color:#56768F;
+    --taskbar-color:#916DBF;
+    --text-color:#2E3647;
+}
+
+#windowIcons
+{
+    display:flex;
     position:absolute;
-    border-radius: 20px;
-}
-
-#windowbox
-{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    padding: 10px;
+    gap:8px;
     justify-content: center;
-    
+    align-items: center;
+    bottom: 50%;
 }
 
-#placeholder
+#windowIcons img:nth-child(even)
 {
-    text-align: center;
+    display:none;
 }
+
+.tabIcon
+{
+    width: 12vh;
+    height:12vh;
+}
+
+#window-name
+{
+    display:block;
+    position:absolute;
+    left:10px;
+    bottom:95.5%;
+    font-size: 1.5em;
+    color: var(--text-color);
+    font-family:'Itim';
+    -webkit-user-select:none;
+    user-select:none;
+    text-align:left;
+}
+
