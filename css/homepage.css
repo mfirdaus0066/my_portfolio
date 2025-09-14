@@ -147,17 +147,17 @@ body
     bottom:100%;
 }
 
-#windowbtn img:nth-child(even)
-{
-    display:none;
-}
-
-.lightmode #windowbtn img:nth-child(odd)
+#windowbtn img:nth-child(odd)
 {
     display:none;
 }
 
 .lightmode #windowbtn img:nth-child(even)
+{
+    display:none;
+}
+
+.lightmode #windowbtn img:nth-child(odd)
 {
     display:block;
 }

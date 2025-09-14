@@ -5,6 +5,7 @@ const windowBox = document.getElementById('windowbox')
 const closeBtn = document.getElementsByClassName('closebtn')
 const miniBtn = document.getElementsByClassName('minibtn')
 const shrinkBtn = document.getElementsByClassName('shrinkbtn')
+const tabIcon = document.getElementsByClassName('tabIcon')
 
 function enablelightmode()
 {
@@ -20,8 +21,21 @@ function enablelightmode()
     shrinkBtn[0].style.display = "none"
     shrinkBtn[1].style.display = "block"
 
-    miniBtn[1].style.display = "none"
-    miniBtn[0].style.display = "block"
+    miniBtn[0].style.display = "none"
+    miniBtn[1].style.display = "block"
+
+    for(let i=0; i<tabIcon.length; i++)
+    {
+        if(i%2 === 0)
+        {
+            tabIcon[i].style.display = "none";
+        }
+
+        else
+        {
+            tabIcon[i].style.display = "block";
+        }
+    }
 }
 
 function disablelightmode()
@@ -33,13 +47,26 @@ function disablelightmode()
     fileIcon[0].style.display = "block"
 
     closeBtn[1].style.display = "none"
-    closeBtn[0].style.display = " block"
+    closeBtn[0].style.display = "block"
 
     shrinkBtn[1].style.display = "none"
     shrinkBtn[0].style.display = "block"
 
     miniBtn[1].style.display = "none"
     miniBtn[0].style.display = "block"
+
+    for (let i = 0; i < tabIcon.length; i++)
+    {
+        if(i % 2 === 0)
+        {
+            tabIcon[i].style.display = "block";
+        }
+
+        else
+        {
+            tabIcon[i].style.display = "none";
+        }
+    }
 }
 
 if(lightmode === "active")//to check if the light theme is active so it can be applied when you reload/comeback to the page
@@ -81,8 +108,8 @@ function mouseDown(e)
     startX = e.clientX;
     startY = e.clientY;
 
-    windowBox.addEventListener('mousemove', mouseMove);//to drag the window when the mouse is on the window
-    windowBox.addEventListener('mouseup', mouseUp);//to stop the dragging when the mouse is not on the window
+    document.addEventListener('mousemove', mouseMove);//to drag the window when the mouse is on the window
+    document.addEventListener('mouseup', mouseUp);//to stop the dragging when the mouse is not on the window
 }
 
 function mouseMove(e)

@@ -28,7 +28,17 @@
 
 #windowIcons img:nth-child(even)
 {
+    display: none;
+}
+
+.lightmode #windowIcons img:nth-child(odd)
+{
     display:none;
+}
+
+.lightmode #windowIcons img:nth-child(even)
+{
+    display: block;
 }
 
 .tabIcon
@@ -49,5 +59,32 @@
     -webkit-user-select:none;
     user-select:none;
     text-align:left;
+}
+
+.tabIcon
+{
+    width: 15vh;
+    height:15vh;
+}
+
+.tabIcon:nth-child(1),
+.tabIcon:nth-child(2)
+{
+    width: 18vh;
+    height: 18vh;
+}
+
+.tabIcon:nth-child(5),
+.tabIcon:nth-child(6)
+{
+    width: 18vh;
+    height: 18vh;
+}
+
+.tabIcon:nth-child(7),
+.tabIcon:nth-child(8)
+{
+    width: 16vh;
+    height: 16vh;
 }
 
