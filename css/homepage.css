@@ -130,7 +130,8 @@ body
     height:60vh;
     top:50%;
     left:50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1);
+    transform-origin: center center;
     z-index: 99;
 }
 
@@ -188,5 +189,17 @@ body
     bottom:0;
     left:0;
     height:40px;
+}
+
+#greetings
+{
+    display: block;
+    position:absolute;
+    text-align: center;
+    width: 100%;
+    margin-top:80px;
+    font-size: 4em;
+    font-family: 'Itim';
+    color: var(--text-color);
 }
 

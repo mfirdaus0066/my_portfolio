@@ -19,32 +19,28 @@
     display:flex;
     position:absolute;
     flex-direction: row;
-    padding: 10px;
-    gap:8px;
+    padding: 15px;
+    gap:25px;
     justify-content: center;
     align-items: center;
-    bottom: 50%;
+    bottom: 8%;
+    left:22%;
+    right:22%;
 }
 
-#windowIcons img:nth-child(even)
+.tabIcon-light
 {
     display: none;
 }
 
-.lightmode #windowIcons img:nth-child(odd)
+.lightmode .tabIcon-dark
 {
     display:none;
 }
 
-.lightmode #windowIcons img:nth-child(even)
+.lightmode .tabIcon-light
 {
     display: block;
-}
-
-.tabIcon
-{
-    width: 12vh;
-    height:12vh;
 }
 
 #window-name
@@ -61,30 +57,33 @@
     text-align:left;
 }
 
-.tabIcon
+.tabIcon-dark,
+.tabIcon-light
 {
     width: 15vh;
     height:15vh;
+    object-fit: contain;
+    background: transparent;
 }
 
-.tabIcon:nth-child(1),
-.tabIcon:nth-child(2)
+
+.tabGroup
 {
-    width: 18vh;
-    height: 18vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    gap: none;
 }
 
-.tabIcon:nth-child(5),
-.tabIcon:nth-child(6)
+.icon-name
 {
-    width: 18vh;
-    height: 18vh;
-}
-
-.tabIcon:nth-child(7),
-.tabIcon:nth-child(8)
-{
-    width: 16vh;
-    height: 16vh;
+    font-family: 'Itim';
+    color: var(--text-color);
+    font-size: 1.2em;
+    -webkit-user-select: none;
+    user-select: none;
+    text-align: center;
+    margin-top:3px;
 }
 

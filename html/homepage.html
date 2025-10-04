@@ -31,6 +31,9 @@
                     <p id="window-name">
                         my portfolio
                     </p>
+                    <p id="greetings">
+                        Hi! I'm Firdaus
+                    </p>
                     <span id="button">
                         <div id="windowbtn">
                             <img src="../image/minimize dark.png" title="minimize" alt="minimize button" id="darkmini" class="minibtn" onclick="miniWindow()">
@@ -42,14 +45,26 @@
                         </div>
                     </span>
                     <span id="windowIcons">
-                        <img src="../image/folder (1).png" alt="work icon" id="workdark" class="tabIcon" onclick="openWork()">
-                        <img src="../image/folder.png" alt="work icon" id="worklight" class="tabIcon" onclick="openWork()">
-                        <img src="../image/info dark.png" alt="about icon" id="aboutdark" class="tabIcon" onclick="openAbout()">
-                        <img src="../image/info light.png" alt="about icon" id="aboutlight" class="tabIcon" onclick="openAbout()">
-                        <img src="../image/link dark.png" alt="link icon" id="linkdark" class="tabIcon" onclick="openLink()">
-                        <img src="../image/link light.png" alt="link icon" id="linklight" class="tabIcon" onclick="openLink()">
-                        <img src="../image/phone (1).png" alt="contact icon" id="contactdark" class="tabIcon" onclick="openContact()">
-                        <img src="../image/phone (2).png" alt="contact icon" id="contactlight" class="tabIcon" onclick="openContat()">
+                        <div class="tabGroup">
+                            <img src="../image/folder (1).png" alt="work icon" id="workdark" class="tabIcon-dark" onclick="openWork()">
+                            <img src="../image/folder.png" alt="work icon" id="worklight" class="tabIcon-light" onclick="openWork()">
+                            <p class="icon-name">Work</p>
+                        </div>
+                        <div class="tabGroup">
+                            <img src="../image/info dark.png" alt="about icon" id="aboutdark" class="tabIcon-dark" onclick="openAbout()">
+                            <img src="../image/info light.png" alt="about icon" id="aboutlight" class="tabIcon-light" onclick="openAbout()">
+                            <p class="icon-name">Info</p>
+                        </div>
+                        <div class="tabGroup">
+                            <img src="../image/link.png" alt="link icon" id="linkdark" class="tabIcon-dark" onclick="openLink()">
+                            <img src="../image/link (1).png" alt="link icon" id="linklight" class="tabIcon-light" onclick="openLink()">
+                            <p class="icon-name">Link</p>
+                        </div>
+                            <div class="tabGroup">
+                            <img src="../image/email (1).png" alt="contact icon" id="contactdark" class="tabIcon-dark" onclick="openContact()">
+                            <img src="../image/email.png" alt="contact icon" id="contactlight" class="tabIcon-light" onclick="openContat()">
+                            <p class="icon-name">Contact</p>
+                        </div>
                     </span>
                 </div>
             </div>

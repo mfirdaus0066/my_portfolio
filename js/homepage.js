@@ -5,7 +5,8 @@ const windowBox = document.getElementById('windowbox')
 const closeBtn = document.getElementsByClassName('closebtn')
 const miniBtn = document.getElementsByClassName('minibtn')
 const shrinkBtn = document.getElementsByClassName('shrinkbtn')
-const tabIcon = document.getElementsByClassName('tabIcon')
+const tabIconLight = document.getElementsByClassName('tabIcon-light')
+const tabIconDark = document.getElementsByClassName('tabIcon-dark')
 
 function enablelightmode()
 {
@@ -24,18 +25,8 @@ function enablelightmode()
     miniBtn[0].style.display = "none"
     miniBtn[1].style.display = "block"
 
-    for(let i=0; i<tabIcon.length; i++)
-    {
-        if(i%2 === 0)
-        {
-            tabIcon[i].style.display = "none";
-        }
-
-        else
-        {
-            tabIcon[i].style.display = "block";
-        }
-    }
+    tabIconDark.style.display = "none"
+    tabIconLight.style.display = "block"
 }
 
 function disablelightmode()
@@ -55,18 +46,8 @@ function disablelightmode()
     miniBtn[1].style.display = "none"
     miniBtn[0].style.display = "block"
 
-    for (let i = 0; i < tabIcon.length; i++)
-    {
-        if(i % 2 === 0)
-        {
-            tabIcon[i].style.display = "block";
-        }
-
-        else
-        {
-            tabIcon[i].style.display = "none";
-        }
-    }
+    tabIconDark.style.display = "block"
+    tabIconLight.style.display = "none"
 }
 
 if(lightmode === "active")//to check if the light theme is active so it can be applied when you reload/comeback to the page
@@ -85,6 +66,7 @@ function openFile()
     windowBox.style.visibility = "visible"
     windowBox.style.left = "50%"
     windowBox.style.top = "50%"
+    windowBox.style.transform = "translate(-50%, -50%) scale(1)"
 }
 
 function closeWindow()
@@ -95,6 +77,21 @@ function closeWindow()
 function miniWindow()
 {
     
+}
+
+function shrinkWindow()
+{
+    if(windowBox.style.transform === ("translate(-50%, -50%) scale(1)"))
+    {   
+        windowBox.style.transform =  "translate(-50%, -50%) scale(0.6)"
+        windowBox.style.transistion = "trnasform 0.5s"
+    }
+
+    else
+    {
+        windowBox.style.transform= "translate(-50%, -50%) scale(1)"// the translate -50% is to make it center
+        windowBox.style.transistion = "trnasform 0.5s"
+    }
 }
 
 let isDragging = false
@@ -120,10 +117,10 @@ function mouseMove(e)
         newY = startY - e.clientY;
 
         startX = e.clientX;//to update the placement of the mouse like where it currently is
-        startY = e.clientY;
+        startY = e.clientY;//e.client is the position of our mouse
 
         windowBox.style.left = (windowBox.offsetLeft - newX) + "px";//to move the window itself
-        windowBox.style.top = (windowBox.offsetTop - newY) + "px";
+        windowBox.style.top = (windowBox.offsetTop - newY) + "px";//offset is the  position of our element for this situation its the window
     }
 }
 
