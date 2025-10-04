@@ -66,13 +66,57 @@ body
     background-color: var(--primary-color);
 }
 
+#icon-container
+{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:row;
+    height: fit-content;
+    position: relative;
+    bottom: -20vh;
+    margin: 100px auto;
+    border: solid 2px black;
+}
+
+#gif,
+#fidzzIcon
+{
+    display:block;
+    position:absolute;
+    width:28vh;
+    height:28vh;
+    object-fit: contain;
+    padding: none;
+}
+
+#gif
+{
+    width:40vh;
+    height:40vh;
+    opacity:0;
+    z-index:2; 
+}
+
 #fidzzIcon
 {
     display:block;
     margin-inline:auto;
     margin-block:100px;
-    width:200px;
-    height:167px;
+    z-index: 1;
+    opacity: 1;
+}
+
+#icon-container:hover #fidzzIcon
+{
+    opacity: 0;
+    pointer-events: none;
+}
+
+#icon-container:hover #gif
+{
+    opacity:1;
+    pointer-events: auto;
 }
 
 #access
@@ -87,9 +131,10 @@ body
     color: var(--text-color);
     border-radius: 12.5px;
     box-shadow: 0 5px 0px #E9F9B4;
-    font-size: 25px;
+    font-size: 2em;
     font-family: 'Itim';
     border:none;
+    z-index: 99;
 }
 
 #access:hover
@@ -108,4 +153,15 @@ body
 #linked
 {
     text-decoration: none;
+}
+
+#main-container
+{
+    display: flex;
+    flex-direction: column;
+    gap: 34vh;
+    width: 100%;
+    height: 65vh;
+    align-items: center;
+    justify-content: center;
 }
