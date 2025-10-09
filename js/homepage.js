@@ -82,6 +82,7 @@ function openFile()
 function closeWindow()
 {
     windowBox.style.visibility = "hidden"
+    isMinimize = false
 }
 
 let windowloc = -96;
@@ -99,10 +100,9 @@ function miniWindow()
         {
               content.style.display = "none" //queryselector is to select the id or class w/o using get...
         }
-
-        windowBox.addEventListener('click', maxWindowOnClick);
-    
 }
+
+windowBox.addEventListener('click', maxWindowOnClick);
 
 function shrinkWindow()
 {
@@ -121,7 +121,7 @@ function shrinkWindow()
     }
 }
 
-maxWindowOnClick ()
+function maxWindowOnClick ()
 {
     if(isMinimize)
     {
