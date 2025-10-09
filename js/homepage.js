@@ -90,15 +90,15 @@ let isShrink = false;
 
 function miniWindow()
 {
-        windowBox.style.transform = `translate(${windowloc}%, 8%) scale(0.35)`
-        windowBox.style.transition = "transform 0.5s"
-        windowBox.style.position = "absolute"
-        isMinimize = true
+    windowBox.style.transform = `translate(${windowloc}%, 8%) scale(0.35)`
+    windowBox.style.transition = "transform 0.5s"
+    windowBox.style.position = "absolute"
+    isMinimize = true
 
-        if(content)
-        {
-              content.style.display = "none" //queryselector is to select the id or class w/o using get...
-        }
+    if(content)
+    {
+          content.style.display = "none" //queryselector is to select the id or class w/o using get...
+    }
 }
 
 windowBox.addEventListener('click', maxWindowOnClick);//to maximize the window when clicked on it
