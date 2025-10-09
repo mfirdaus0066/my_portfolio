@@ -92,20 +92,19 @@ function miniWindow()
 {
     windowBox.style.transform = `translate(${windowloc}%, 8%) scale(0.35)`
     windowBox.style.transition = "transform 0.5s"
-    windowBox.style.position = "absolute"
+    windowBox.style.position = "fixed"
     isMinimize = true
 
     if(content)
     {
           content.style.display = "none" //queryselector is to select the id or class w/o using get...
     }
-}
 
-windowBox.addEventListener('click', maxWindowOnClick);//to maximize the window when clicked on it
+    windowBox.addEventListener('click', maxWindowOnClick);//to maximize the window when clicked on it
+}
 
 function shrinkWindow()
 {
-    
 
     if(!isShrink)
     {   
@@ -131,12 +130,14 @@ function maxWindowOnClick ()
         windowBox.style.transition = "transform 0.5s"
         isMinimize = false
         windowBox.style.position = "fixed"
+        content.style.display = "block"
 
         if(content && isShrink)
         {
             content.style.display = "block"
             windowBox.style.transform =  "translate(-50%, -50%) scale(0.6)"
             windowBox.style.transistion = "transform 0.5s"
+            windowBox.style.position = "fixed"
         }
 
         windowBox.removeEventListener('click', maxWindowOnClick);
