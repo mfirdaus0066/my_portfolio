@@ -126,11 +126,6 @@ function maxWindowOnClick ()
 {
     if(isMinimize)
     {
-        windowBox.style.transform = "translate(-50%, -50%) scale(1)"
-        windowBox.style.transition = "transform 0.5s"
-        isMinimize = false
-        windowBox.style.position = "fixed"
-        content.style.display = "block"
 
         if(content && isShrink)
         {
@@ -138,6 +133,18 @@ function maxWindowOnClick ()
             windowBox.style.transform =  "translate(-50%, -50%) scale(0.6)"
             windowBox.style.transistion = "transform 0.5s"
             windowBox.style.position = "fixed"
+            isMinimize = false
+            isShrink = true
+        }
+
+        else
+        {
+            windowBox.style.transform = "translate(-50%, -50%) scale(1)"
+            windowBox.style.transition = "transform 0.5s"
+            isMinimize = false
+            isShrink = false
+            windowBox.style.position = "fixed"
+            content.style.display = "block"
         }
 
         windowBox.removeEventListener('click', maxWindowOnClick);
