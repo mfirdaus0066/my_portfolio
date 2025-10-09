@@ -76,18 +76,17 @@ function openFile()
     windowBox.style.transform = "translate(-50%, -50%) scale(1)"
     content.style.display = "block"
     windowBox.style.position = "fixed"
-    isMinimize = false
 }
 
 function closeWindow()
 {
     windowBox.style.visibility = "hidden"
-    isMinimize = false
 }
 
 let windowloc = -96;
 let isMinimize = false; //to ensure the window is minimize or not
 const content = windowBox.querySelector('.window-content');
+let isShrink = false;
 
 function miniWindow()
 {
@@ -102,23 +101,26 @@ function miniWindow()
         }
 }
 
-windowBox.addEventListener('click', maxWindowOnClick);
+windowBox.addEventListener('click', maxWindowOnClick);//to maximize the window when clicked on it
 
 function shrinkWindow()
 {
-    if(windowBox.style.transform === ("translate(-50%, -50%) scale(1)"))
+    
+
+    if(!isShrink)
     {   
         windowBox.style.transform =  "translate(-50%, -50%) scale(0.6)"
         windowBox.style.transistion = "transform 0.5s"
-        isMinimize = false
+        isShrink = true;
     }
 
     else
     {
         windowBox.style.transform= "translate(-50%, -50%) scale(1)"// the translate -50% is to make it center
         windowBox.style.transistion = "transform 0.5s"
-        isMinimize = false
+        isShrink = false;
     }
+
 }
 
 function maxWindowOnClick ()
@@ -130,9 +132,11 @@ function maxWindowOnClick ()
         isMinimize = false
         windowBox.style.position = "fixed"
 
-        if(content)
+        if(content && isShrink)
         {
             content.style.display = "block"
+            windowBox.style.transform =  "translate(-50%, -50%) scale(0.6)"
+            windowBox.style.transistion = "transform 0.5s"
         }
 
         windowBox.removeEventListener('click', maxWindowOnClick);
