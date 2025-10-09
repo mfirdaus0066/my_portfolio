@@ -8,6 +8,11 @@ const shrinkBtn = document.getElementsByClassName('shrinkbtn')
 const tabIconLight = document.getElementsByClassName('tabIcon-light')
 const tabIconDark = document.getElementsByClassName('tabIcon-dark')
 
+let windowloc = -96;
+let isMinimize = false; //to ensure the window is minimize or not
+const content = windowBox.querySelector('.window-content');
+let isShrink = false;
+
 function enablelightmode()
 {
     document.body.classList.add('lightmode')
@@ -27,8 +32,8 @@ function enablelightmode()
 
     for(let i=0; i< tabIconDark.length; i++)
     {
-        tabIconDark.style.display = "none"
-        tabIconLight.style.display = "block"
+        tabIconDark[i].style.display = "none"
+        tabIconLight[i].style.display = "block"
     }
 }
 
@@ -51,8 +56,8 @@ function disablelightmode()
 
     for(let i=0; i< tabIconDark.length; i++)
     {
-        tabIconDark.style.display = "block"
-        tabIconLight.style.display = "none"
+        tabIconDark[i].style.display = "block"
+        tabIconLight[i].style.display = "none"
     }
    
 }
@@ -76,30 +81,44 @@ function openFile()
     windowBox.style.transform = "translate(-50%, -50%) scale(1)"
     content.style.display = "block"
     windowBox.style.position = "fixed"
+
+    windowBox.addEventListener('mousedown', mouseDown);
+
+    isMinimize = false
+    isShrink = false
 }
 
 function closeWindow()
 {
     windowBox.style.visibility = "hidden"
-}
 
-let windowloc = -96;
-let isMinimize = false; //to ensure the window is minimize or not
-const content = windowBox.querySelector('.window-content');
-let isShrink = false;
+    isMinimize = false
+    isShrink = false
+}
 
 function miniWindow()
 {
-    windowBox.style.transform = `translate(${windowloc}%, 8%) scale(0.35)`
     windowBox.style.transition = "transform 0.5s"
+    windowBox.style.transform = `translate(${windowloc}%, 8%) scale(0.35)`
     windowBox.style.position = "fixed"
-    isMinimize = true
+    windowBox.style.pointerEvents = "auto"
+    windowBox.style.zIndex = "100"
+    windowBox.style.display = "block"
+    windowBox.style.opacity = "1"
 
     if(content)
     {
           content.style.display = "none" //queryselector is to select the id or class w/o using get...
     }
 
+    windowBox.removeEventListener('mousedown', mouseDown);
+
+    isMinimize = true
+
+}
+
+if(isMinimize)
+{
     windowBox.addEventListener('click', maxWindowOnClick);//to maximize the window when clicked on it
 }
 
@@ -109,45 +128,53 @@ function shrinkWindow()
     if(!isShrink)
     {   
         windowBox.style.transform =  "translate(-50%, -50%) scale(0.6)"
-        windowBox.style.transistion = "transform 0.5s"
+        windowBox.style.transition = "transform 0.5s"
         isShrink = true;
     }
 
     else
     {
         windowBox.style.transform= "translate(-50%, -50%) scale(1)"// the translate -50% is to make it center
-        windowBox.style.transistion = "transform 0.5s"
+        windowBox.style.transition = "transform 0.5s"
         isShrink = false;
     }
+
+    windowBox.addEventListener('mousedown', mouseDown);
 
 }
 
 function maxWindowOnClick ()
 {
-    if(isMinimize)
-    {
+    console.log("clicked!")
 
-        if(content && isShrink)
+    if(!isMinimize)return;
+
+    else
+    {
+        if(content)
         {
             content.style.display = "block"
+        }
+
+        if(isShrink)
+        {
             windowBox.style.transform =  "translate(-50%, -50%) scale(0.6)"
-            windowBox.style.transistion = "transform 0.5s"
-            windowBox.style.position = "fixed"
-            isMinimize = false
             isShrink = true
         }
 
         else
         {
             windowBox.style.transform = "translate(-50%, -50%) scale(1)"
-            windowBox.style.transition = "transform 0.5s"
-            isMinimize = false
-            isShrink = false
-            windowBox.style.position = "fixed"
-            content.style.display = "block"
         }
 
+        isMinimize = false
+
+        windowBox.style.transition = "transform 0.5s"
+        windowBox.style.position = "fixed"
+
         windowBox.removeEventListener('click', maxWindowOnClick);
+        windowBox.addEventListener('mousedown', mouseDown);
+
     }
 }
 
