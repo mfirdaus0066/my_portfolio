@@ -74,6 +74,9 @@ function openFile()
     windowBox.style.left = "50%"
     windowBox.style.top = "50%"
     windowBox.style.transform = "translate(-50%, -50%) scale(1)"
+    content.style.display = "block"
+    windowBox.style.position = "fixed"
+    isMinimize = false
 }
 
 function closeWindow()
@@ -96,6 +99,8 @@ function miniWindow()
         {
               content.style.display = "none" //queryselector is to select the id or class w/o using get...
         }
+
+        windowBox.addEventListener('click', maxWindowOnClick);
     
 }
 
@@ -105,16 +110,18 @@ function shrinkWindow()
     {   
         windowBox.style.transform =  "translate(-50%, -50%) scale(0.6)"
         windowBox.style.transistion = "transform 0.5s"
+        isMinimize = false
     }
 
     else
     {
         windowBox.style.transform= "translate(-50%, -50%) scale(1)"// the translate -50% is to make it center
         windowBox.style.transistion = "transform 0.5s"
+        isMinimize = false
     }
 }
 
-windowBox.addEventListener('click', () =>
+maxWindowOnClick ()
 {
     if(isMinimize)
     {
@@ -127,8 +134,10 @@ windowBox.addEventListener('click', () =>
         {
             content.style.display = "block"
         }
+
+        windowBox.removeEventListener('click', maxWindowOnClick);
     }
-})
+}
 
 let isDragging = false
 let newX, newY, startX, startY;
