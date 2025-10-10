@@ -103,23 +103,27 @@ function miniWindow()
     windowBox.style.position = "fixed"
     windowBox.style.pointerEvents = "auto"
     windowBox.style.zIndex = "100"
-    windowBox.style.display = "block"
-    windowBox.style.opacity = "1"
 
-    if(content)
-    {
-          content.style.display = "none" //queryselector is to select the id or class w/o using get...
-    }
-
+    content.style.display = "none" //queryselector is to select the id or class w/o using get...
+    isMinimize = true;
     windowBox.removeEventListener('mousedown', mouseDown);
 
-    isMinimize = true
-
+    setTimeout(() => 
+    {
+        windowBox.addEventListener('click', restoreOnClick)
+    }, 500);
+       
 }
 
-if(isMinimize)
+function restoreOnClick(e)
 {
-    windowBox.addEventListener('click', maxWindowOnClick);//to maximize the window when clicked on it
+    if(!isMinimize) return;
+    
+    maxWindowOnClick();//to maximize the window when clicked on it
+    e.stopPropagation();//to prevent the click event from bubbling up to the parent element
+    
+    windowBox.removeEventListener('click', restoreOnClick);
+
 }
 
 function shrinkWindow()
@@ -143,14 +147,10 @@ function shrinkWindow()
 
 }
 
-function maxWindowOnClick ()
+function maxWindowOnClick()
 {
     console.log("clicked!")
 
-    if(!isMinimize)return;
-
-    else
-    {
         if(content)
         {
             content.style.display = "block"
@@ -172,11 +172,8 @@ function maxWindowOnClick ()
         windowBox.style.transition = "transform 0.5s"
         windowBox.style.position = "fixed"
 
-        windowBox.removeEventListener('click', maxWindowOnClick);
         windowBox.addEventListener('mousedown', mouseDown);
-
-    }
-}
+};
 
 let isDragging = false
 let newX, newY, startX, startY;
