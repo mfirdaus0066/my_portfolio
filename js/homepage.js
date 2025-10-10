@@ -8,10 +8,12 @@ const shrinkBtn = document.getElementsByClassName('shrinkbtn')
 const tabIconLight = document.getElementsByClassName('tabIcon-light')
 const tabIconDark = document.getElementsByClassName('tabIcon-dark')
 
-let windowloc = -96;
 let isMinimize = false; //to ensure the window is minimize or not
 const content = windowBox.querySelector('.window-content');
 let isShrink = false;
+
+const dockPanel = { left: 20, top: 90}
+
 
 function enablelightmode()
 {
@@ -81,8 +83,10 @@ function openFile()
     windowBox.style.transform = "translate(-50%, -50%) scale(1)"
     content.style.display = "block"
     windowBox.style.position = "fixed"
+    windowBox.style.cursor = "cursor"
 
     windowBox.addEventListener('mousedown', mouseDown);
+    windowBox.removeEventListener('click', restoreOnClick)
 
     isMinimize = false
     isShrink = false
@@ -99,10 +103,11 @@ function closeWindow()
 function miniWindow()
 {
     windowBox.style.transition = "transform 0.5s"
-    windowBox.style.transform = `translate(${windowloc}%, 8%) scale(0.35)`
+    windowBox.style.transform = `translate(${dockPanel.left - 50}%, ${dockPanel.top - 50}%) scale(0.35)`
     windowBox.style.position = "fixed"
     windowBox.style.pointerEvents = "auto"
     windowBox.style.zIndex = "100"
+    windowBox.style.cursor = "pointer"
 
     content.style.display = "none" //queryselector is to select the id or class w/o using get...
     isMinimize = true;
@@ -111,7 +116,7 @@ function miniWindow()
     setTimeout(() => 
     {
         windowBox.addEventListener('click', restoreOnClick)
-    }, 500);
+    }, 1000);
        
 }
 
@@ -143,6 +148,7 @@ function shrinkWindow()
         isShrink = false;
     }
 
+    windowBox.style.cursor = "cursor"
     windowBox.addEventListener('mousedown', mouseDown);
 
 }
@@ -171,6 +177,7 @@ function maxWindowOnClick()
 
         windowBox.style.transition = "transform 0.5s"
         windowBox.style.position = "fixed"
+        windowBox.style.cursor = "cursor"
 
         windowBox.addEventListener('mousedown', mouseDown);
 };
@@ -186,6 +193,8 @@ function mouseDown(e)
     isDragging = true;
     startX = e.clientX;
     startY = e.clientY;
+
+    windowBox.style.cursor = "grabbing"
 
     document.addEventListener('mousemove', mouseMove);//to drag the window when the mouse is on the window
     document.addEventListener('mouseup', mouseUp);//to stop the dragging when the mouse is not on the window
@@ -210,6 +219,9 @@ function mouseUp(e)
 {
     isDragging = false;
     if(!isDragging)
-    document.removeEventListener('mousemove',mouseMove);
+    {
+        windowBox.style.cursor = "grab"
+        document.removeEventListener('mousemove',mouseMove);
+    }
 }
 
