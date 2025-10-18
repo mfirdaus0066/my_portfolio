@@ -12,7 +12,7 @@ let isMinimize = false; //to ensure the window is minimize or not
 const content = windowBox.querySelector('.window-content');
 let isShrink = false;
 
-const dockPanel = { left: 20, top: 90}
+const dockPanel = { left: windowBox.clientX, top: windowBox.clientY}
 
 
 function enablelightmode()
@@ -103,7 +103,7 @@ function closeWindow()
 function miniWindow()
 {
     windowBox.style.transition = "transform 0.5s"
-    windowBox.style.transform = `translate(${dockPanel.left - 50}%, ${dockPanel.top - 50}%) scale(0.35)`
+    windowBox.style.transform = `translate(${-(dockPanel.left - 50)}%, ${-(dockPanel.top - 50)}%) scale(0.35)`
     windowBox.style.position = "fixed"
     windowBox.style.pointerEvents = "auto"
     windowBox.style.zIndex = "100"
@@ -116,7 +116,7 @@ function miniWindow()
     setTimeout(() => 
     {
         windowBox.addEventListener('click', restoreOnClick)
-    }, 1000);
+    }, 600);
        
 }
 
@@ -224,4 +224,3 @@ function mouseUp(e)
         document.removeEventListener('mousemove',mouseMove);
     }
 }
-
