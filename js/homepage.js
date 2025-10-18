@@ -12,7 +12,7 @@ let isMinimize = false; //to ensure the window is minimize or not
 const content = windowBox.querySelector('.window-content');
 let isShrink = false;
 
-const dockPanel = { left: -123, top: 10}
+const dockPanel = { left: -7, top: 67}
 
 
 function enablelightmode()
@@ -80,7 +80,7 @@ function openFile()
     windowBox.style.visibility = "visible"
     windowBox.style.left = "50%"
     windowBox.style.top = "50%"
-    windowBox.style.transform = "translate(-50%, -50%) scale(1)"
+    windowBox.style.scale = "1"
     content.style.display = "block"
     windowBox.style.position = "fixed"
     windowBox.style.cursor = "cursor"
@@ -102,8 +102,10 @@ function closeWindow()
 
 function miniWindow()
 {
-    windowBox.style.transition = "transform 0.5s"
-    windowBox.style.transform = `translate(${dockPanel.left}%, ${dockPanel.top}%) scale(0.35)`
+    windowBox.style.transition = "all 0.5s ease"
+    windowBox.style.left = `${dockPanel.left}%`
+    windowBox.style.top = `${dockPanel.top}%`
+    windowBox.style.scale = "0.35"
     windowBox.style.position = "fixed"
     windowBox.style.pointerEvents = "auto"
     windowBox.style.zIndex = "100"
@@ -138,18 +140,19 @@ function shrinkWindow()
 
     if(!isShrink)
     {   
-        windowBox.style.transform =  "translate(-50%, -50%) scale(0.6)"
-        windowBox.style.transition = "transform 0.5s"
+        windowBox.style.scale =  "0.6"
         isShrink = true;
     }
 
     else
     {
-        windowBox.style.transform= "translate(-50%, -50%) scale(1)"// the translate -50% is to make it center
-        windowBox.style.transition = "transform 0.5s"
+        windowBox.style.scale = "1"
         isShrink = false;
     }
 
+    windowBox.style.left = `${lastPosition.x}px`
+    windowBox.style.top = `${lastPosition.y}px`
+    windowBox.style.transition = "all 0.5s ease"
     windowBox.style.cursor = "cursor"
     windowBox.addEventListener('mousedown', mouseDown);
 
@@ -166,18 +169,20 @@ function maxWindowOnClick()
 
         if(isShrink)
         {
-            windowBox.style.transform =  "translate(-50%, -50%) scale(0.6)"
+            windowBox.style.scale =  "0.6"
             isShrink = true
         }
 
         else
         {
-            windowBox.style.transform = "translate(-50%, -50%) scale(1)"
+            windowBox.style.scale =  "1"
         }
 
         isMinimize = false
 
-        windowBox.style.transition = "transform 0.5s"
+        windowBox.style.left = `${lastPosition.x}px`
+        windowBox.style.top = `${lastPosition.y}px`
+        windowBox.style.transition = "all 0.5s ease"
         windowBox.style.position = "fixed"
         windowBox.style.cursor = "cursor"
 
@@ -186,6 +191,7 @@ function maxWindowOnClick()
 
 let isDragging = false
 let newX, newY, startX, startY;
+let lastPosition = { x: 0, y: 0}
 
 windowBox.addEventListener('mousedown', mouseDown)//to grab the window to drag
 
@@ -196,6 +202,7 @@ function mouseDown(e)
     startX = e.clientX;
     startY = e.clientY;
 
+    windowBox.style.transition = "none"//to prevent the transition effect when dragging
     windowBox.style.cursor = "grabbing"
 
     document.addEventListener('mousemove', mouseMove);//to drag the window when the mouse is on the window
@@ -214,6 +221,9 @@ function mouseMove(e)
 
         windowBox.style.left = (windowBox.offsetLeft - newX) + "px";//to move the window itself
         windowBox.style.top = (windowBox.offsetTop - newY) + "px";//offset is the  position of our element for this situation its the window
+
+        lastPosition.x = windowBox.offsetLeft;
+        lastPosition.y = windowBox.offsetTop;
     }
 }
 
