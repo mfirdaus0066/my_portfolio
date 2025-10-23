@@ -87,3 +87,7 @@
     margin-top:3px;
 }
 
+#workWindow
+{
+    visibility: hidden;
+}

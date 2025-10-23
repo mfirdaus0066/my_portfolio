@@ -7,6 +7,7 @@ const miniBtn = document.getElementsByClassName('minibtn')
 const shrinkBtn = document.getElementsByClassName('shrinkbtn')
 const tabIconLight = document.getElementsByClassName('tabIcon-light')
 const tabIconDark = document.getElementsByClassName('tabIcon-dark')
+const workWindow = document.getElementById('workWindow')
 
 let isMinimize = false; //to ensure the window is minimize or not
 const content = windowBox.querySelector('.window-content');
@@ -235,4 +236,11 @@ function mouseUp(e)
         windowBox.style.cursor = "grab"
         document.removeEventListener('mousemove',mouseMove);
     }
+}
+
+//for the window within the window
+
+function openWork()
+{
+    workWindow.style.visibility = "visible"
 }
